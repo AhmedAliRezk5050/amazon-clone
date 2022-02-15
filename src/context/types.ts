@@ -1,7 +1,7 @@
 import { User } from 'firebase/auth';
 
 export interface State {
-  basket: Product[];
+  basket: BasketItem[];
   user: User | null;
 }
 
@@ -11,6 +11,11 @@ export interface Product {
   price: number;
   rating: number;
   image: string;
+}
+
+export interface BasketItem {
+  product: Product;
+  quantity: number;
 }
 
 export enum ActionTypes {

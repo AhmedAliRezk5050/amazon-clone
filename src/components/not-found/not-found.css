@@ -1,0 +1,21 @@
+.not-found {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  text-align: center;
+  flex-direction: column;
+  background-color: #131921;
+  color: white;
+}
+
+.link-wrapper {
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #cd9042;
+}

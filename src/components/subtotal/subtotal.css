@@ -12,14 +12,20 @@
   background: #f0c14b;
   border: 1px solid;
   border-color: #a88734 #9c7e31 #846a29;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
 .subtotal__input {
   display: flex;
   align-items: center;
-  margin: 15px 0
+  margin: 15px 0;
 }
 
 .subtotal__input > input {
   margin-right: 5px;
+}
+
+.subtotal__input > label {
+  white-space: nowrap;
 }

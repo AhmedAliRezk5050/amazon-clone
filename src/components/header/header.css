@@ -1,70 +1,97 @@
 .header {
-    align-items: center;
-    display: flex;
-    padding: 10px 10px;
-    background: #131921;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+  align-items: center;
+  display: flex;
+  padding: 10px 10px;
+  background: #131921;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
 .header__logo {
-    width: 100px;
-    margin-right: 20px;
-    object-fit: contain;
+  width: 100px;
+  margin-right: 20px;
+  object-fit: contain;
 }
 
 .header__search {
-    display: flex;
-    flex: 1;
+  display: flex;
+  /* flex: 1; */
+  width: 90%;
+  max-width: 400px;
 }
 .header__searchInput {
-    height: 38px;
-    padding: 10px;
-    border: none;
-    outline: none;
-    flex: 1;
+  height: 38px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  flex: 1;
 }
 
 .header__searchIcon {
-    background: #cd9042;
-    height: 38px !important;
-    width: 38px !important;
-    padding: 5px;
+  background: #cd9042;
+  height: 38px !important;
+  width: 38px !important;
+  padding: 5px;
 }
 
 .header__nav {
-    /*margin: 0 10px;*/
-    display: flex;
+  /*margin: 0 10px;*/
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .header__link {
-    margin: 0 10px;
-    color: white;
-    text-decoration: none;
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
 }
 
 .header__option {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /*align-items: center;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*align-items: center;*/
 }
 
 .header__optionLineOne {
-    font-size: 10px;
+  font-size: 11px;
 }
 
-.header__optionLineTwo{
-    font-size: 13px;
-    font-weight: bold;
+.header__optionLineTwo {
+  font-size: 13px;
+  font-weight: bold;
 }
 
 .header__optionBasket {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .header__basketCount {
-    margin-left: 10px;
+  margin-left: 10px;
+}
+
+@media (min-width: 37.5em) {
+  .header__search {
+    flex: 1;
+    max-width: initial;
+  }
+}
+@media (min-width: 48em) {
+  .header {
+    justify-content: initial;
+  }
+}
+
+@media (min-width: 25em) {
+  .header__nav {
+    gap: initial;
+    flex-wrap: initial;
+  }
 }

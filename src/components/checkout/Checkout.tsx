@@ -7,6 +7,7 @@ import Subtotal from '../subtotal/Subtotal';
 
 const Checkout = () => {
   const [{ basket }, dispatch] = useStateValue();
+
   return (
     <div className='checkout'>
       {basket.length === 0 ? (
@@ -28,7 +29,11 @@ const Checkout = () => {
             <h2 className='checkout__title'>Your Shopping Basket</h2>
 
             {basket.map((item) => (
-              <CheckoutProduct {...item} key={item.id} />
+              <CheckoutProduct
+                {...item.product}
+                quantity={item.quantity}
+                key={item.product.id}
+              />
             ))}
           </div>
           <div className='checkout__rightSide'>

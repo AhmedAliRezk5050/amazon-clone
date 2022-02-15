@@ -1,18 +1,17 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import reducer, {initialState} from './context/reducer';
+import reducer, { initialState } from './context/reducer';
 import StateProvider from './context/StateProvider';
-import "./firebase/firebase";
+import './firebase/firebase';
 
-// console.log('index----------------- 1')
 ReactDOM.render(
-    <React.StrictMode>
-        <StateProvider reducer={reducer} initialState={initialState}>
-            <App/>
-        </StateProvider>
-    </React.StrictMode>,
-    document.getElementById('root'),
+  <React.StrictMode>
+    <StateProvider reducer={reducer} initialState={initialState}>
+      <App />
+    </StateProvider>
+  </React.StrictMode>,
+  document.getElementById('root'),
 );
 
 /*

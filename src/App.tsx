@@ -9,23 +9,21 @@ import { useStateValue } from './context/StateProvider';
 import { auth } from './firebase/firebase';
 import { removeUser, setUser } from './context/types';
 import Logout from './components/logout/Logout';
+import NotFound from './components/not-found/NotFound';
 
 function App() {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(
       (user) => {
-        console.log('user', user);
         if (user) {
           dispatch(setUser(user));
         } else {
           dispatch(removeUser());
         }
       },
-      (error) => {
-        console.log('error', error);
-      },
+      (error) => {},
     );
 
     return () => {
@@ -46,17 +44,20 @@ function App() {
               </>
             }
           />
-          <Route
-            path='/checkout'
-            element={
-              <>
-                <Header />
-                <Checkout />
-              </>
-            }
-          />
+          {user && (
+            <Route
+              path='/checkout'
+              element={
+                <>
+                  <Header />
+                  <Checkout />
+                </>
+              }
+            />
+          )}
           <Route path='/login' element={<Login />} />
           <Route path='/logout' element={<Logout />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </Router>
     </div>

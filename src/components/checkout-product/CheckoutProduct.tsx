@@ -10,6 +10,7 @@ interface CheckoutProductProps {
   price: number;
   rating: number;
   image: string;
+  quantity: number;
 }
 
 const CheckoutProduct: FC<CheckoutProductProps> = ({
@@ -18,6 +19,7 @@ const CheckoutProduct: FC<CheckoutProductProps> = ({
   price,
   rating,
   image,
+  quantity,
 }) => {
   const [_, dispatch] = useStateValue();
   return (
@@ -36,6 +38,7 @@ const CheckoutProduct: FC<CheckoutProductProps> = ({
               <StarIcon key={index} />
             ))}
         </div>
+        <div>quantity: {quantity}</div>
         <button
           className='checkoutProduct__button'
           onClick={() =>

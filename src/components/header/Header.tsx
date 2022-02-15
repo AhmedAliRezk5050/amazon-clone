@@ -4,6 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { useStateValue } from '../../context/StateProvider';
 import { auth } from '../../firebase/firebase';
+import { getBasketProductsCount } from '../../context/reducer';
 
 const Header = () => {
   const [{ user, basket }] = useStateValue();
@@ -57,14 +58,16 @@ const Header = () => {
             <span className='header__optionLineTwo'>Prime</span>
           </div>
         </Link>
-        <Link to='/checkout' className='header__link'>
-          <div className='header__optionBasket'>
-            <ShoppingBasketIcon className='header__basketIcon' />
-            <span className='header__optionLineTwo header__basketCount'>
-              {basket.length}
-            </span>
-          </div>
-        </Link>
+        {user && (
+          <Link to='/checkout' className='header__link'>
+            <div className='header__optionBasket'>
+              <ShoppingBasketIcon className='header__basketIcon' />
+              <span className='header__optionLineTwo header__basketCount'>
+                {getBasketProductsCount(basket)}
+              </span>
+            </div>
+          </Link>
+        )}
       </div>
     </nav>
   );
